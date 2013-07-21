@@ -603,7 +603,7 @@ static void TUISetCurrentContextScaleFactor(CGFloat s)
 {
 	self.layer.frame = f;
 	[self.subviews makeObjectsPerformSelector:@selector(ancestorDidLayout)];
-    [[NSNotificationCenter defaultCenter] postNotificationName:TUIViewFrameDidChangeNotification object:self];
+    [NSNotificationCenter.defaultCenter postNotificationName:TUIViewFrameDidChangeNotification object:self];
 }
 
 - (CGRect)bounds
@@ -764,7 +764,7 @@ static void TUISetCurrentContextScaleFactor(CGFloat s)
 
 		[superview.subviews removeObjectIdenticalTo:self];
 		[self.layer removeFromSuperlayer];
-		self.nsView = nil;
+		_nsView = nil;
 
 		[self didMoveToSuperview];
 		[self didMoveFromTUINSView:nsView];
@@ -911,7 +911,7 @@ static void TUISetCurrentContextScaleFactor(CGFloat s)
 		[subview willMoveToWindow:newWindow];
 	}
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:TUIViewWillMoveToWindowNotification object:self userInfo:newWindow != nil ? [NSDictionary dictionaryWithObject:newWindow forKey:TUIViewWindow] : nil];
+	[NSNotificationCenter.defaultCenter postNotificationName:TUIViewWillMoveToWindowNotification object:self userInfo:newWindow != nil ? [NSDictionary dictionaryWithObject:newWindow forKey:TUIViewWindow] : nil];
 }
 
 - (void)didMoveToWindow {
@@ -919,7 +919,7 @@ static void TUISetCurrentContextScaleFactor(CGFloat s)
 	
 	[self.subviews makeObjectsPerformSelector:_cmd];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:TUIViewDidMoveToWindowNotification object:self userInfo:self.nsView.window != nil ? [NSDictionary dictionaryWithObject:self.nsView.window forKey:TUIViewWindow] : nil];
+	[NSNotificationCenter.defaultCenter postNotificationName:TUIViewDidMoveToWindowNotification object:self userInfo:self.nsView.window != nil ? [NSDictionary dictionaryWithObject:self.nsView.window forKey:TUIViewWindow] : nil];
 }
 - (void)didAddSubview:(TUIView *)subview {}
 - (void)willRemoveSubview:(TUIView *)subview {}
@@ -1115,11 +1115,11 @@ static void TUISetCurrentContextScaleFactor(CGFloat s)
 {
 	if(n != _nsView) {
 		[self willMoveToWindow:(TUINSWindow *)[n window]];
-		[[NSNotificationCenter defaultCenter] postNotificationName:TUIViewWillMoveToWindowNotification object:self userInfo:[n window] ? [NSDictionary dictionaryWithObject:[n window] forKey:TUIViewWindow] : nil];
+		[NSNotificationCenter.defaultCenter postNotificationName:TUIViewWillMoveToWindowNotification object:self userInfo:[n window] ? [NSDictionary dictionaryWithObject:[n window] forKey:TUIViewWindow] : nil];
 		_nsView = n;
 		[self.subviews makeObjectsPerformSelector:@selector(setNSView:) withObject:n];
 		[self didMoveToWindow];
-		[[NSNotificationCenter defaultCenter] postNotificationName:TUIViewDidMoveToWindowNotification object:self userInfo:[n window] ? [NSDictionary dictionaryWithObject:[n window] forKey:TUIViewWindow] : nil];
+		[NSNotificationCenter.defaultCenter postNotificationName:TUIViewDidMoveToWindowNotification object:self userInfo:[n window] ? [NSDictionary dictionaryWithObject:[n window] forKey:TUIViewWindow] : nil];
 	}
 }
 

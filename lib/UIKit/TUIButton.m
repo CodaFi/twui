@@ -16,6 +16,7 @@
 
 #import "TUIButton.h"
 #import "TUICGAdditions.h"
+#import "TUIControl+Private.h"
 #import "TUIImageView.h"
 #import "TUILabel.h"
 #import "TUINSView.h"
@@ -257,6 +258,7 @@ static CGRect ButtonRectCenteredInRect(CGRect a, CGRect b)
 		 */
 		[self.nsView performSelector:@selector(mouseUp:) withObject:event afterDelay:0.0];
 		
+		_controlFlags.tracking = 0;
 		[TUIView animateWithDuration:0.2 animations:^{
 			[self redraw];
 		}];
@@ -267,8 +269,8 @@ static CGRect ButtonRectCenteredInRect(CGRect a, CGRect b)
 	
 }
 
-- (void)stateDidChange {
-	[super stateDidChange];
+- (void)_stateDidChange {
+	[super _stateDidChange];
 	
 	[self _update];
 	

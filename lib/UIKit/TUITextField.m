@@ -16,10 +16,6 @@
 
 #import "TUITextField.h"
 #import "TUIButton.h"
-#import "TUITextViewEditor.h"
-
-@interface TUITextFieldEditor : TUITextViewEditor
-@end
 
 @implementation TUITextField
 

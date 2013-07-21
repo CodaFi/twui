@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>456B18A8-15B6-4DF6-B035-E5C51D108DF5</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TwUI</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>64913B27-D98A-47BD-842D-254587C6E16A</key>
+		<string>git://github.com/github/expecta.git</string>
+		<key>C5D79432-B219-40D3-936A-6C89BD8291C7</key>
+		<string>https://github.com/CodaFi/twui.git</string>
+		<key>EE8838BB-563B-4A4B-B5CA-B9900B5B12BD</key>
+		<string>git://github.com/petejkim/specta.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TwUI.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>64913B27-D98A-47BD-842D-254587C6E16A</key>
+		<string>../../TwUITests/expecta</string>
+		<key>C5D79432-B219-40D3-936A-6C89BD8291C7</key>
+		<string>../..</string>
+		<key>EE8838BB-563B-4A4B-B5CA-B9900B5B12BD</key>
+		<string>../../TwUITests/specta</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/CodaFi/twui.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C5D79432-B219-40D3-936A-6C89BD8291C7</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>64913B27-D98A-47BD-842D-254587C6E16A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>expecta</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C5D79432-B219-40D3-936A-6C89BD8291C7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>twui</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EE8838BB-563B-4A4B-B5CA-B9900B5B12BD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>specta</string>
+		</dict>
+	</array>
+</dict>
+</plist>

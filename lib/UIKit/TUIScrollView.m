@@ -197,7 +197,7 @@ static BOOL isAtleastMountainLion = NO;
  *
  * @param visibility vertical scroll indicator visibility
  */
--(void)setVerticalScrollIndicatorVisibility:(TUIScrollViewIndicatorVisibility)visibility {
+- (void)setVerticalScrollIndicatorVisibility:(TUIScrollViewIndicatorVisibility)visibility {
 	_scrollViewFlags.verticalScrollIndicatorVisibility = visibility;
 }
 
@@ -223,7 +223,7 @@ static BOOL isAtleastMountainLion = NO;
  *
  * @param visibility horizontal scroll indicator visibility
  */
--(void)setHorizontalScrollIndicatorVisibility:(TUIScrollViewIndicatorVisibility)visibility {
+- (void)setHorizontalScrollIndicatorVisibility:(TUIScrollViewIndicatorVisibility)visibility {
 	_scrollViewFlags.horizontalScrollIndicatorVisibility = visibility;
 }
 
@@ -231,7 +231,7 @@ static BOOL isAtleastMountainLion = NO;
  * @brief Determine if the vertical scroll indicator is currently showing
  * @return showing or not
  */
--(BOOL)verticalScrollIndicatorShowing {
+- (BOOL)verticalScrollIndicatorShowing {
 	return _scrollViewFlags.verticalScrollIndicatorShowing;
 }
 
@@ -239,7 +239,7 @@ static BOOL isAtleastMountainLion = NO;
  * @brief Determine if the horizontal scroll indicator is currently showing
  * @return showing or not
  */
--(BOOL)horizontalScrollIndicatorShowing {
+- (BOOL)horizontalScrollIndicatorShowing {
 	return _scrollViewFlags.horizontalScrollIndicatorShowing;
 }
 
@@ -587,33 +587,6 @@ static CVReturn scrollCallback(CVDisplayLinkRef displayLink, const CVTimeStamp *
 	[self _updateScrollers];
 }
 
-static CGFloat lerp(CGFloat a, CGFloat b, CGFloat t)
-{
-	return a - t * (a+b);
-}
-
-static CGFloat clamp(CGFloat x, CGFloat min, CGFloat max)
-{
-	if (x < min) return min;
-	if (x > max) return max;
-	return x;
-}
-
-static CGFloat PointDist(CGPoint a, CGPoint b)
-{
-	CGFloat dx = a.x - b.x;
-	CGFloat dy = a.y - b.y;
-	return sqrt(dx*dx + dy*dy);
-}
-
-static CGPoint PointLerp(CGPoint a, CGPoint b, CGFloat t)
-{
-	CGPoint p;
-	p.x = lerp(a.x, b.x, t);
-	p.y = lerp(a.y, b.y, t);
-	return p;
-}
-
 - (CGPoint)contentOffset
 {
 	CGPoint p = _unroundedContentOffset;
@@ -702,7 +675,7 @@ static CGPoint PointLerp(CGPoint a, CGPoint b, CGFloat t)
  *
  * @return bounces or not
  */
--(BOOL)bounces {
+- (BOOL)bounces {
 	return _scrollViewFlags.bounceEnabled;
 }
 
@@ -715,7 +688,7 @@ static CGPoint PointLerp(CGPoint a, CGPoint b, CGFloat t)
  *
  * @return bounces or not
  */
--(void)setBounces:(BOOL)bounces {
+- (void)setBounces:(BOOL)bounces {
 	_scrollViewFlags.bounceEnabled = bounces;
 }
 
@@ -726,7 +699,7 @@ static CGPoint PointLerp(CGPoint a, CGPoint b, CGFloat t)
  *
  * @return always bounce vertically or not
  */
--(BOOL)alwaysBounceVertical {
+- (BOOL)alwaysBounceVertical {
 	return _scrollViewFlags.alwaysBounceVertical;
 }
 
@@ -737,7 +710,7 @@ static CGPoint PointLerp(CGPoint a, CGPoint b, CGFloat t)
  *
  * @param always always bounce vertically or not
  */
--(void)setAlwaysBounceVertical:(BOOL)always {
+- (void)setAlwaysBounceVertical:(BOOL)always {
 	_scrollViewFlags.alwaysBounceVertical = always;
 }
 
@@ -748,7 +721,7 @@ static CGPoint PointLerp(CGPoint a, CGPoint b, CGFloat t)
  *
  * @return always bounce vertically or not
  */
--(BOOL)alwaysBounceHorizontal {
+- (BOOL)alwaysBounceHorizontal {
 	return _scrollViewFlags.alwaysBounceHorizontal;
 }
 
@@ -759,7 +732,7 @@ static CGPoint PointLerp(CGPoint a, CGPoint b, CGFloat t)
  *
  * @param always always bounce vertically or not
  */
--(void)setAlwaysBounceHorizontal:(BOOL)always {
+- (void)setAlwaysBounceHorizontal:(BOOL)always {
 	_scrollViewFlags.alwaysBounceHorizontal = always;
 }
 

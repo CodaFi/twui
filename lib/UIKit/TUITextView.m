@@ -242,7 +242,7 @@
 	return [[self text] length] > 0;
 }
 
--(void)setEditable:(BOOL)editable_ {
+- (void)setEditable:(BOOL)editable_ {
 	[renderer setEditable:editable_];
 	editable = editable_;
 }

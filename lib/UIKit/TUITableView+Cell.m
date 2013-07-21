@@ -33,14 +33,14 @@
 /**
  * @brief Mouse down in a cell
  */
--(void)__mouseDownInCell:(TUITableViewCell *)cell offset:(CGPoint)offset event:(NSEvent *)event {
+- (void)__mouseDownInCell:(TUITableViewCell *)cell offset:(CGPoint)offset event:(NSEvent *)event {
   [self __beginDraggingCell:cell offset:offset location:[[cell superview] localPointForEvent:event]];
 }
 
 /**
  * @brief Mouse up in a cell
  */
--(void)__mouseUpInCell:(TUITableViewCell *)cell offset:(CGPoint)offset event:(NSEvent *)event {
+- (void)__mouseUpInCell:(TUITableViewCell *)cell offset:(CGPoint)offset event:(NSEvent *)event {
   [self __endDraggingCell:cell offset:offset location:[[cell superview] localPointForEvent:event]];
 }
 
@@ -49,21 +49,21 @@
  * 
  * If reordering is permitted by the table, this will begin a move operation.
  */
--(void)__mouseDraggedCell:(TUITableViewCell *)cell offset:(CGPoint)offset event:(NSEvent *)event {
+- (void)__mouseDraggedCell:(TUITableViewCell *)cell offset:(CGPoint)offset event:(NSEvent *)event {
   [self __updateDraggingCell:cell offset:offset location:[[cell superview] localPointForEvent:event]];
 }
 
 /**
  * @brief Determine if we're dragging a cell or not
  */
--(BOOL)__isDraggingCell {
+- (BOOL)__isDraggingCell {
   return _dragToReorderCell != nil && _currentDragToReorderIndexPath != nil;
 }
 
 /**
  * @brief Begin dragging a cell
  */
--(void)__beginDraggingCell:(TUITableViewCell *)cell offset:(CGPoint)offset location:(CGPoint)location {
+- (void)__beginDraggingCell:(TUITableViewCell *)cell offset:(CGPoint)offset location:(CGPoint)location {
   
   _currentDragToReorderLocation = location;
   _currentDragToReorderMouseOffset = offset;
@@ -78,7 +78,7 @@
 /**
  * @brief Update cell dragging
  */
--(void)__updateDraggingCell:(TUITableViewCell *)cell offset:(CGPoint)offset location:(CGPoint)location {
+- (void)__updateDraggingCell:(TUITableViewCell *)cell offset:(CGPoint)offset location:(CGPoint)location {
   BOOL animate = TRUE;
   
   // note the location in any event
@@ -276,7 +276,7 @@
 /**
  * @brief Finish dragging a cell
  */
--(void)__endDraggingCell:(TUITableViewCell *)cell offset:(CGPoint)offset location:(CGPoint)location {
+- (void)__endDraggingCell:(TUITableViewCell *)cell offset:(CGPoint)offset location:(CGPoint)location {
   BOOL animate = TRUE;
   
   // cancel our continuous scroll

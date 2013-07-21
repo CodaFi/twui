@@ -104,6 +104,7 @@ typedef enum TUITextVerticalAlignment : NSUInteger {
 - (CGSize)sizeConstrainedToWidth:(CGFloat)width;
 - (CGSize)sizeConstrainedToWidth:(CGFloat)width numberOfLines:(NSUInteger)numberOfLines;
 - (void)reset;
+- (CTFrameRef)ctFrame;
 
 // The -drawingAttributedString method allows for direct access
 // to the string being drawn to the screen. For example, if the

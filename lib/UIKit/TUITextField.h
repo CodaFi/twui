@@ -15,6 +15,7 @@
  */
 
 #import "TUITextView.h"
+#import "TUITextViewEditor.h"
 
 @class TUIButton;
 
@@ -35,6 +36,10 @@
 - (TUIButton *)clearButton;
 
 @end
+
+@interface TUITextFieldEditor : TUITextViewEditor
+@end
+
 
 @protocol TUITextFieldDelegate <TUITextViewDelegate>
 

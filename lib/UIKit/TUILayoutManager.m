@@ -67,7 +67,7 @@
 
 - (id)init {
 	if((self = [super init])) {
-		[[NSNotificationCenter defaultCenter] addObserver:self
+		[NSNotificationCenter.defaultCenter addObserver:self
 	                                             selector:@selector(frameChanged:)
 		                                             name:TUIViewFrameDidChangeNotification
 		                                           object:nil];
@@ -81,7 +81,7 @@
 }
 
 - (void)dealloc {
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 - (void)removeAllLayoutConstraints {

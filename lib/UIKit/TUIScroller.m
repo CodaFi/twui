@@ -82,16 +82,26 @@ static NSTimeInterval const TUIScrollerDisplayDuration = 0.75f;
 		[self addSubview:self.knob];
 		[self _updateKnobAlphaWithSpeed:0.0];
 		
-		[[NSNotificationCenter defaultCenter] addObserver:self
-												 selector:@selector(preferredScrollerStyleChanged:)
-													 name:NSPreferredScrollerStyleDidChangeNotification
-												   object:nil];
+		
+        __weak __typeof(&*self)weakSelf = self;
+		[NSNotificationCenter.defaultCenter addObserverForName:NSPreferredScrollerStyleDidChangeNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+			__strong __typeof(&*weakSelf)strongSelf = weakSelf;
+			
+			strongSelf.hideKnobTimer = nil;
+			
+			if ([NSScroller preferredScrollerStyle] == NSScrollerStyleOverlay) {
+				[strongSelf _hideKnob];
+			} else {
+				strongSelf.knobHidden = NO;
+				[strongSelf _updateKnobAlphaWithSpeed:TUIScrollerStateChangeSpeed];
+			}
+		}];
 	}
 	return self;
 }
 
 - (void)dealloc {
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[NSNotificationCenter.defaultCenter removeObserver:self];
 }
 
 - (void)setHideKnobTimer:(NSTimer *)hideKnobTimer {
@@ -100,17 +110,6 @@ static NSTimeInterval const TUIScrollerDisplayDuration = 0.75f;
 		_hideKnobTimer = nil;
 	} else {
 		_hideKnobTimer = hideKnobTimer;
-	}
-}
-
-- (void)preferredScrollerStyleChanged:(NSNotification *)notification {
-	self.hideKnobTimer = nil;
-	
-	if ([NSScroller preferredScrollerStyle] == NSScrollerStyleOverlay) {
-		[self _hideKnob];
-	} else {
-		self.knobHidden = NO;
-		[self _updateKnobAlphaWithSpeed:TUIScrollerStateChangeSpeed];
 	}
 }
 

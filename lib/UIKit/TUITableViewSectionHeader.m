@@ -24,7 +24,7 @@
  * This method should return TRUE whenever the header is not occupying
  * it's normal frame and is overlaping row content.
  */
--(BOOL)isPinnedToViewport {
+- (BOOL)isPinnedToViewport {
   return _isPinnedToViewport;
 }
 
@@ -33,7 +33,7 @@
  * @note You should not need to set this property directly, it is managed
  * by the table view.
  */
--(void)setPinnedToViewport:(BOOL)pinned {
+- (void)setPinnedToViewport:(BOOL)pinned {
   if(_isPinnedToViewport != pinned){
     if(pinned) [self headerWillBecomePinned];
     else [self headerWillBecomeUnpinned];
@@ -47,7 +47,7 @@
  * Subclasses may override this method to change the appearance of the header
  * when it becomes pinned to the viewport.
  */
--(void)headerWillBecomePinned {
+- (void)headerWillBecomePinned {
   [self setNeedsDisplay];
 }
 
@@ -57,7 +57,7 @@
  * Subclasses may override this method to change the appearance of the header
  * when it becomes unpinned from the viewport.
  */
--(void)headerWillBecomeUnpinned {
+- (void)headerWillBecomeUnpinned {
   [self setNeedsDisplay];
 }
 

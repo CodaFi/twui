@@ -28,8 +28,8 @@
   
 }
 
--(void)headerWillBecomePinned;
--(void)headerWillBecomeUnpinned;
+- (void)headerWillBecomePinned;
+- (void)headerWillBecomeUnpinned;
 
 @property (readwrite, assign, getter=isPinnedToViewport) BOOL pinnedToViewport;
 

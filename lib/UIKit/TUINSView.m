@@ -140,7 +140,7 @@ static NSComparisonResult compareNSViewOrdering (NSView *viewA, NSView *viewB, v
 
 - (void)dealloc
 {
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[NSNotificationCenter.defaultCenter removeObserver:self];
 	
 	_rootView.hostView = nil;
 	_rootView.nsView = nil;
@@ -255,9 +255,9 @@ static NSComparisonResult compareNSViewOrdering (NSView *viewA, NSView *viewB, v
 
 - (void)viewWillMoveToWindow:(NSWindow *)newWindow {
 	if(self.window != nil) {
-		[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidBecomeKeyNotification object:self.window];
-		[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidResignKeyNotification object:self.window];
-		[[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidChangeScreenProfileNotification object:self.window];
+		[NSNotificationCenter.defaultCenter removeObserver:self name:NSWindowDidBecomeKeyNotification object:self.window];
+		[NSNotificationCenter.defaultCenter removeObserver:self name:NSWindowDidResignKeyNotification object:self.window];
+		[NSNotificationCenter.defaultCenter removeObserver:self name:NSWindowDidChangeScreenProfileNotification object:self.window];
 	}
 	
 	CALayer *hostLayer = self.layer;
@@ -285,12 +285,12 @@ static NSComparisonResult compareNSViewOrdering (NSView *viewA, NSView *viewB, v
 	[self.rootView didMoveToWindow];
 	
 	if(self.window != nil) {
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidResignKey:) name:NSWindowDidResignKeyNotification object:self.window];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowDidBecomeKey:) name:NSWindowDidBecomeKeyNotification object:self.window];
+		[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(windowDidResignKey:) name:NSWindowDidResignKeyNotification object:self.window];
+		[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(windowDidBecomeKey:) name:NSWindowDidBecomeKeyNotification object:self.window];
 		
 		// make sure the window will post NSWindowDidChangeScreenProfileNotification
 		[self.window setDisplaysWhenScreenProfileChanges:YES];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(screenProfileOrBackingPropertiesDidChange:) name:NSWindowDidChangeScreenProfileNotification object:self.window];
+		[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(screenProfileOrBackingPropertiesDidChange:) name:NSWindowDidChangeScreenProfileNotification object:self.window];
 	}
 }
 
@@ -462,11 +462,11 @@ static NSComparisonResult compareNSViewOrdering (NSView *viewA, NSView *viewB, v
 	[self _updateHoverViewWithEvent:event];
 }
 
--(void)mouseEntered:(NSEvent *)event {
+- (void)mouseEntered:(NSEvent *)event {
   [self _updateHoverViewWithEvent:event];
 }
 
--(void)mouseExited:(NSEvent *)event {
+- (void)mouseExited:(NSEvent *)event {
   [self _updateHoverViewWithEvent:event];
 }
 

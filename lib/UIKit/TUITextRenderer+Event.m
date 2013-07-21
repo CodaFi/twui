@@ -304,7 +304,7 @@ normal:
 	if(_flags.delegateWillBecomeFirstResponder) [delegate textRendererWillBecomeFirstResponder:self];
 	if(_flags.delegateDidBecomeFirstResponder) [delegate textRendererDidBecomeFirstResponder:self];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:TUITextRendererDidBecomeFirstResponder
+	[NSNotificationCenter.defaultCenter postNotificationName:TUITextRendererDidBecomeFirstResponder
 								object:self];
 	
 	return YES;
@@ -317,7 +317,7 @@ normal:
 	[self resetSelection];
 	if(_flags.delegateDidResignFirstResponder) [delegate textRendererDidResignFirstResponder:self];
 	
-	[[NSNotificationCenter defaultCenter] postNotificationName:TUITextRendererDidResignFirstResponder
+	[NSNotificationCenter.defaultCenter postNotificationName:TUITextRendererDidResignFirstResponder
 														object:self];
 	
 	return YES;
@@ -353,8 +353,8 @@ normal:
 
 - (void)searchGoogle:(NSMenuItem *)menuItem {
 	NSString *urlEscapes = @"!*'();:@&=+$,/?%#[]";
-	NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)self.selectedString,
-																									NULL, (CFStringRef)urlEscapes,
+	NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)self.selectedString,
+																									NULL, (__bridge CFStringRef)urlEscapes,
 																									kCFStringEncodingUTF8));
 	
 	NSString *googleString = [NSString stringWithFormat:@"http://www.google.com/search?q=%@", encodedString];
